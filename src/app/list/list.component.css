@@ -1,0 +1,8 @@
+#list > li {
+    border: solid 1x #F00 !important;
+}
+
+#list > .element:hover, #list > li:focus  {
+    border: solid 1x #F00 !important;
+    background-color: rgba(0, 0, 0, 0.05);
+}

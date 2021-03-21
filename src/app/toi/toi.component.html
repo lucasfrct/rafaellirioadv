@@ -1,0 +1,28 @@
+<div class="row">
+    <section class="col s10 offset-s1 m10 offset-m1">
+       <app-list (user)="loadUser($event)" (address)="loadAddress($event)" (person)="loadPerson($event)"></app-list>
+    </section>
+    <section class="col s10 offset-s1   m10 offset-m1">
+        <h4 class="center title">AO JUÍZO DA VARA CÍVEL DA COMARCA DE {{ comarca }}</h4>
+        <p>
+        {{user.name}} pessoa jurídica de direito privado, inscrita no CPF sob nº  {{cpf}}, {{user.email}}, com sede na {{address.street}}, {{address.number}}, {{address.district}}, na Cidade de {{address.city}}, {{address.state}}, CEP {{address.cep}}, vem respeitosamente, por meio do seu Advogado, infra assinado, ajuizar.
+        </p>
+        <h5 class="center title">AÇÃO DE COBRANÇA LEGITIMIDADE DAS PARTES: </h5>
+        <p>Ninguém poderá pleitear direito alheio em nome próprio, salvo quando autorizado pelo ordenamento jurídico. Parágrafo único. Havendo substituição processual, o substituído poderá intervir como assistente litisconsorcial. (Art. 18 do CPC)</p>
+        <h5 class="center title">DO NEGÓCIO JURÍDICO </h5>
+        <p>Autor firmou com o Réu um negócio jurídico para fins de {{description01}}<br>
+            O pagamento foi ajustado da seguinte forma  conforme. <br>
+            O Autor cumpriu com sua obrigação, conforme  que junta em anexo<br> 
+            odavia, os pagamentos deveriam ser realizados em {{date}} o que não foi cumprido pelo Réu. Anteriormente à proposição da presente ação, o Autor buscou o adimplemento junto ao Réu, mas sem êxito, conforme notificação e mensagens que junta em anexo, motivando a presente ação.
+        </p>
+        <h5 class="center title">INTERESSE DE AGIR:</h5>
+        <p>O interesse de agir deve ficar demonstrado e geralmente vem amparado pela pretensão resistida e utilidade da ação. Ou seja, antes da ação o Autor tentou resolver o impasse e o deferimento do pedido traz efetivamente uma solução ao problema. Esta prova é importante para demonstrar o interesse de agir do Autor.</p>
+        <h5 class="center title">DA INTERRUPÇÃO DO PRAZO PRESCRICIONAL</h5>
+        <p>O Código Civil dispõe de forma clara as possibilidades de suspensão do prazo prescricional.Art. 202. A interrupção da prescrição, que somente poderá ocorrer uma vez, dar-se-á:I - por despacho do juiz, mesmo incompetente, que ordenar a citação, se o interessado a promover no prazo e na forma da lei processual;II - por protesto, nas condições do inciso antecedente;III - por protesto cambial;IV - pela apresentação do título de crédito em juízo de inventário ou em concurso de credores;V - por qualquer ato judicial que constitua em mora o devedor;VI - por qualquer ato inequívoco, ainda que extrajudicial, que importe reconhecimento do direito pelo devedor.Parágrafo único.A prescrição interrompida recomeça a correr da data do ato que a interrompeu, ou do último ato do processo para a interromper.Portanto, considerando que em , houve  , tem-se por plenamente cabível a presente ação.Nesse sentido:Requer, portanto o recebimento e ao final, total provimento da presente ação.
+        </p>
+        <h5 class="center title">DO DIREITO DO CREDORA</h5>
+        <p>egislação brasileira, em especial o Código Civil, prevê a possibilidade de o credor buscar a satisfação de seu crédito mediante a oposição de ação pertinente.Art. 1.336. São deveres do condômino:I - contribuir para as despesas do condomínio na proporção das suas frações ideais, salvo disposição em contrário na convenção;(...)§ 1º O condômino que não pagar a sua contribuição ficará sujeito aos juros moratórios convencionados ou, não sendo previstos, os de um por cento ao mês e multa de até dois por cento sobre o débito.No presente caso, tem-se em tela um ato ilícito pelo descumprimento de obrigação pactuada por parte do Réu, o que se enquadra igualmente no Art. 389 do Código Civil nos seguintes termos:No presente caso, tem-se a demonstração inequívoca da ilicitude do ato do Réu ao deixar de pagar as parcelas condominiais devidas pelo imóvel.Assim, diante do crédito formado com as despesas de condomínio, conforme títulos em anexo, devido o processamento para efetivo pagamento do valor devido até o momento de R$  , cumulado com as parcelas vincendas.
+        </p>
+        <h5 class="center title">DA TUTELA DE URGÊNCIA - BLOQUEIO BACENJUD</h5>
+    </section>
+</div>
