@@ -1,33 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Country } from '../country/country'
+import { FirebaseService } from '../firebase/firebase.service'
 
 @Component({
     selector: 'app-toi',
     templateUrl: './toi.component.html',
     styleUrls: ['./toi.component.css']
 })
-export class ToiComponent implements OnInit {
+export class ToiComponent implements OnInit, AfterViewInit {
 
-    public comarca: any = "São Francisco do Itabapoana"
-    public name: any = "--nome ou razão social-- "
-    public cnpj: any = "0000000000/000-00"
-    public cpf: any = "000000000-00"
-    public email: any = "aaa@aaaaa.com"
-    public street: any = "--rua--"
-    public number: any = "000"
-    public district: any = "--bairro--"
-    public city: any = "--cidade--"
-    public state: any = "--estado--"
-    public cep: any = "--cep--"
+    protected service: FirebaseService
+
     public description01: any = "--descrição--"
-    public date: any = "--data--"
+
+    public country = { city: "" }
+
+    public company = {
+        name: "LIGHT SERVIÇOS DE ELETRICIDADE S/A",
+        cnpj: "00.000.000/0001-46",
+        street: 'Avenida Marechal Floriano',
+        number: '168',
+        district: "Centro",
+        city: "Rio de Janeiro",
+        state: 'RJ',
+        cep: "20080-002"
+
+    }
+
+    public client = {
+        code: "00000000",
+        street: 'Avenida Marechal Floriano',
+        number: "100",
+        district: "Centro",
+        city: "Rio de Janeiro",
+        state: "RJ",
+        cep: "20080-002",
+        attendance: [
+            { code: "0000000", date: "00/00/0000", }
+        ],
+        fines: [
+            { value: "000,00" }
+        ],
+        protocols: [
+            { number: '00000000000000000000', }
+        ]
+    }
     
-    public user = {
+    public user: any = {
         name: "",
         tel: "",
         email: ""
     }
 
-    public address = {
+    public address: any = {
         cep: "",
         city: "",
         district: "",
@@ -41,14 +66,20 @@ export class ToiComponent implements OnInit {
     }
 
     constructor() {
-        
+        this.service = new FirebaseService
     }
 
     ngOnInit(): void {
+        this.country = new Country({})
+    }
+
+    ngAfterViewInit(): void {
+        //this.service.comarcaAdd(new Country(this.county))
     }
 
     public loadUser(user: any) { this.user = user }
     public loadAddress(address: any) { this.address = address }
     public loadPerson(person: any) { this.person = person }
+
 
 }

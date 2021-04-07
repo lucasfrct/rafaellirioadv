@@ -1,28 +1,50 @@
-<div class="row">
-    <section class="col s10 offset-s1 m10 offset-m1">
+<div class="container row">
+    
+    <section class="col s12">
        <app-list (user)="loadUser($event)" (address)="loadAddress($event)" (person)="loadPerson($event)"></app-list>
     </section>
-    <section class="col s10 offset-s1   m10 offset-m1">
-        <h4 class="center title">AO JUÍZO DA VARA CÍVEL DA COMARCA DE {{ comarca }}</h4>
+
+    <section class="col s12">
+        <h4 class="center title">AO JUÍZO DA VARA CÍVEL DA COMARCA DE {{country.city}}</h4>
         <p>
-        {{user.name}} pessoa jurídica de direito privado, inscrita no CPF sob nº  {{cpf}}, {{user.email}}, com sede na {{address.street}}, {{address.number}}, {{address.district}}, na Cidade de {{address.city}}, {{address.state}}, CEP {{address.cep}}, vem respeitosamente, por meio do seu Advogado, infra assinado, ajuizar.
+        {{user.name}} pessoa jurídica de direito privado, inscrita no CPF sob nº  {{person.cpf}}, {{user.email}}, com sede na {{address.street}}, {{address.number}}, {{address.district}}, na Cidade de {{address.city}}, {{address.state}}, CEP {{address.cep}}, vem respeitosamente, por meio do seu Advogado, infra assinado, ajuizar.
         </p>
-        <h5 class="center title">AÇÃO DE COBRANÇA LEGITIMIDADE DAS PARTES: </h5>
-        <p>Ninguém poderá pleitear direito alheio em nome próprio, salvo quando autorizado pelo ordenamento jurídico. Parágrafo único. Havendo substituição processual, o substituído poderá intervir como assistente litisconsorcial. (Art. 18 do CPC)</p>
-        <h5 class="center title">DO NEGÓCIO JURÍDICO </h5>
-        <p>Autor firmou com o Réu um negócio jurídico para fins de {{description01}}<br>
-            O pagamento foi ajustado da seguinte forma  conforme. <br>
-            O Autor cumpriu com sua obrigação, conforme  que junta em anexo<br> 
-            odavia, os pagamentos deveriam ser realizados em {{date}} o que não foi cumprido pelo Réu. Anteriormente à proposição da presente ação, o Autor buscou o adimplemento junto ao Réu, mas sem êxito, conforme notificação e mensagens que junta em anexo, motivando a presente ação.
-        </p>
-        <h5 class="center title">INTERESSE DE AGIR:</h5>
-        <p>O interesse de agir deve ficar demonstrado e geralmente vem amparado pela pretensão resistida e utilidade da ação. Ou seja, antes da ação o Autor tentou resolver o impasse e o deferimento do pedido traz efetivamente uma solução ao problema. Esta prova é importante para demonstrar o interesse de agir do Autor.</p>
-        <h5 class="center title">DA INTERRUPÇÃO DO PRAZO PRESCRICIONAL</h5>
-        <p>O Código Civil dispõe de forma clara as possibilidades de suspensão do prazo prescricional.Art. 202. A interrupção da prescrição, que somente poderá ocorrer uma vez, dar-se-á:I - por despacho do juiz, mesmo incompetente, que ordenar a citação, se o interessado a promover no prazo e na forma da lei processual;II - por protesto, nas condições do inciso antecedente;III - por protesto cambial;IV - pela apresentação do título de crédito em juízo de inventário ou em concurso de credores;V - por qualquer ato judicial que constitua em mora o devedor;VI - por qualquer ato inequívoco, ainda que extrajudicial, que importe reconhecimento do direito pelo devedor.Parágrafo único.A prescrição interrompida recomeça a correr da data do ato que a interrompeu, ou do último ato do processo para a interromper.Portanto, considerando que em , houve  , tem-se por plenamente cabível a presente ação.Nesse sentido:Requer, portanto o recebimento e ao final, total provimento da presente ação.
-        </p>
-        <h5 class="center title">DO DIREITO DO CREDORA</h5>
-        <p>egislação brasileira, em especial o Código Civil, prevê a possibilidade de o credor buscar a satisfação de seu crédito mediante a oposição de ação pertinente.Art. 1.336. São deveres do condômino:I - contribuir para as despesas do condomínio na proporção das suas frações ideais, salvo disposição em contrário na convenção;(...)§ 1º O condômino que não pagar a sua contribuição ficará sujeito aos juros moratórios convencionados ou, não sendo previstos, os de um por cento ao mês e multa de até dois por cento sobre o débito.No presente caso, tem-se em tela um ato ilícito pelo descumprimento de obrigação pactuada por parte do Réu, o que se enquadra igualmente no Art. 389 do Código Civil nos seguintes termos:No presente caso, tem-se a demonstração inequívoca da ilicitude do ato do Réu ao deixar de pagar as parcelas condominiais devidas pelo imóvel.Assim, diante do crédito formado com as despesas de condomínio, conforme títulos em anexo, devido o processamento para efetivo pagamento do valor devido até o momento de R$  , cumulado com as parcelas vincendas.
-        </p>
-        <h5 class="center title">DA TUTELA DE URGÊNCIA - BLOQUEIO BACENJUD</h5>
+
+        <h5 class="center title">AÇÃO DE DEFESA DO CONSUMIDOR C/C REPETIÇÃO DE INDEBITO C/C DANOS MORAIS E TUTELA ANTECIPADA</h5>
+
+        <p>Em face {{ company.name }}, empresa concessionária de serviço público de energia elétrica, inscrita no CNPJ/MF Nº {{company.cnpj}}, com sede na {{company.street}}, nº {{company.number}}, {{company.district}}, {{company.city}}/{{company.state}}, CEP: {{company.cep}}, pelas razões de fato e de direito que passa a expor: </p>
+
+        <h5 class="center titel">I- DOS FATOS</h5>
+        <p>Conforme se verifica, parte autora é consumidora dos serviços prestados pela empresa ré através do código de cliente através do código de cliente nº {{client.code}}, com unidade consumidora na Rua {{ client.street}}, {{client.number}}, {{client.district}}, {{client.city}}/{{client.state}}, CEP: {{client.cep}}. </p>
+        
+        <p> Neste endereço acima citado é uma kitnet, com quarto, cozinha e banheiro, onde residem duas pessoas, que trabalham fora de casa, ou sejam passam boa parte do dia no trabalho. </p>
+
+        <p> Ocorre que, no dia {{client.attendance[0].date}} a {{company.name}} estava realizando inspeção técnica na rua do referido imóvel e unilateralmente emitiu o Termo de Ocorrência e Inspeção nº {{client.attendance[0].code}}, pelo simples fato do histórico de consumo do autor, sem levar em consideração a realidade fática do motivo da queda do consumo, gerando uma multa no valor de R$ {{client.fines[0].value}} ( por extenso). </p>
+
+        <p> Inconformada com TOI a parte autora dirigiu-se a uma agência da empresa ré, esclarecendo que jamais utilizou ligações clandestinas de energia elétrica , tendo sido sua reclamação gerado o protocolo nº {{client.protocols[0].number}}, entretanto não obteve êxito na sua reclamação.</p>
+
+        <p> A Ré neste caso está fazendo JUSTIÇA COM AS PRÓPRIAS MÃOS, pois acusou; não deu direito de defesa; condenou e agora está aplicando ao requerente uma penalidade, quando de forma coercitiva obriga a pagar uma dívida que não reconhece, parcelando a multa aplicada na fatura de consumo de energia elétrica, sem a permissão do autor. </p>
+
+        <p> Por estas razões, em decorrências das frustradas tentativas administrativas de solucionar seu problema, e pelo desrespeito ao consumidor, não restou outra solução a parte autora senão pleitear seus direitos judicialmente. </p>
+
+        <h5 class="center title">II- DOS REQUISITOS DA TUTELA ANTECIPADA</h5>
+        <p> De acordo com o artigo 300  do Novo Código de Processo Civil , a tutela provisória de urgência será concedida quando houver elementos que evidenciem a (i) probabilidade do direito  e (ii) o perigo de dano ou o risco ao resultado útil do processo</p>
+
+        <p> Presentes tais requisitos, a tutela de urgência será deferida, desde que não haja perigo de irreversibilidade dos efeitos da decisão, vide o § 3º do artigo 300 do novo estatuto processual.</p>
+
+        <p> Com bem ressaltado pelo eminente doutrinador Rodolfo Kronemberg Hartmann, a probabilidade do direito implica no ônus de o demandante demonstrar, juntamente com a sua petição, a prova suficiente da verossimilhança, o que, de certa foram equivale à expressão latina </p>
+
+        <p> A probabilidade que autoriza o emprego da técnica antecipatória para a tutela dos direitos é a probabilidade lógica – que é aquela que surge da confrontação das alegações e das provas com os elementos disponíveis nos autos, sendo provável a hipótese que encontra maior grau de confirmação e menor grau de refutação nesses elementos.</p>
+
+        <p> Já o perigo de dano ou o risco ao resultado útil do processo correspondem ao periculum in mora , pois a demora da resposta jurisdicional gera uma situação de risco. Há urgência quando a demora pode comprometer a realização imediata ou futura do direito.</p>
+
+        <p> Feita esta breve explanação, cumpre ressaltar que estão presentes todos os requisitos legais para o deferimento do pedido de tutela provisória de urgência em caráter antecedente, senão vejamos.</p>
+
+        <p> Consoante as linhas traçadas, o autor, através da presente demanda, sedimentada e traz à análise jurisdicional, a efetiva demonstração de que a ré agiu de maneira flagrantemente ilegal ao impor o pagamento de valores completamente aleatórios e sem qualquer base legal.</p>
+
+        <p> Desta maneira, é evidentemente ilegal a cobrança realizada pela ré, já que não foram observados os requisitos legais para tanto.</p>
+
+        <p> Muito embora o autor confie que a probidade de seus argumentos ecoe no integral acolhimento de suas pretensões, fato é que a espera pelo fim do trâmite processual pode lhe trazer diversos prejuízos.</p>
+       
     </section>
 </div>

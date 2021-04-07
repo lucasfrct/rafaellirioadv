@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../firebase/firebase.service'
+import { PersonFactory } from '../person/Person.fatory';
+import { User } from '../user/user'
 
 
 @Component({
@@ -15,30 +17,26 @@ export class ListComponent implements OnInit {
     @Output () person = new EventEmitter <String> ();
 
     public users: any
-    private firebaseService: any
+    private service: FirebaseService
     public search: any
 
-
     constructor() {
-        this.firebaseService = new FirebaseService
+        this.service = new FirebaseService
     }
 
     ngOnInit(): void {
-        this.firebaseService.users((users: any) => {
+        this.service.users((users: Object[]) => {
             this.users = users
-            console.log("Users: ", users)
         })
     }
 
     public select(user: any) {
         
-        this.firebaseService.loadAddress(user.id, (address: any)=> {
+        this.service.loadAddress(user.id, (address: any)=> {
 
-            this.firebaseService.loadPerson(user.id, (person: any)=> {
-                console.log("select: ", user)
-                console.log("adress", address)
-                console.log("person", person)
-                
+            this.service.loadPerson(user.id, (person: any)=> {
+
+                console.log("MOUNT PERSON FACTORY: ", person)
                 this.user.emit(user)
                 this.address.emit(address)
                 this.person.emit(person)
@@ -52,3 +50,4 @@ export class ListComponent implements OnInit {
     }
 
 }
+

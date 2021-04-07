@@ -1,4 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
+import { User } from '../user/user'
+import { Address }  from '../address/address'
+import { Person } from '../person/Person'
 
 declare let firebase: any
 
@@ -15,7 +18,8 @@ export class FirebaseService implements OnInit {
     public collection: any = {
         users: 'users',
         person: 'person',
-        addresses: "addresses"
+        addresses: "addresses",
+        comarcas: "countries"
     }
 
     constructor() {
@@ -30,18 +34,18 @@ export class FirebaseService implements OnInit {
             measurementId: "G-ECCQ4HH8KV"
         };
 
-
         if(firebase.apps.length === 0) { firebase.initializeApp(this.config) }
 
-       
         this.firebase = firebase
-        this.db = this.firebase.firestore();
-
+        this.db = this.firebase.firestore()
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.firebase = firebase
+        this.db = this.firebase.firestore()
+     }
 
-    public genId() {
+    public getId() {
         return this.firebase.database().ref().child('users').push().key;
     }
     public user(data: any = null) {
@@ -56,37 +60,46 @@ export class FirebaseService implements OnInit {
         return this.db.collection(this.collection.addresses).add(data)
     }
 
+    public comarca(data: any = null) {
+        data = JSON.parse(JSON.stringify(data))
+        return this.db.collection(this.collection.comarcas).add(data)
+    }
+
     public users(callback: any) {
         let docs: any = []
-        this.db.collection(this.collection.users).get().then((querySnapshot: any)=> {
-            querySnapshot.forEach((doc: any) => { docs.push(doc.data()) })
+        this.db.collection(this.collection.users).get().then((querySnapshot: object[])=> {
+            querySnapshot.forEach((doc: any) => { 
+                docs.push(new User(doc.data())) 
+            })
+
+            console.log("LIST USERS: ", docs)
             callback(docs)
         })
     }
 
     public loadAddress(id: any, callback: any) {
-        console.log("load address", id)
         this.db
             .collection(this.collection.addresses)
             .where("id", "==", id)
             .get()
             .then((query: any)=> {
-                query.forEach((doc: any)=> {
-                    callback(doc.data())
+                query.forEach((doc: any )=> {
+                    console.log("LOAD ADDRESS: ", new Address(doc.data()))
+                    callback(new Address(doc.data()))
                 })
             })
     }
 
     public loadPerson(id: any, callback: any) {
-        console.log("load person", id)
         this.db
-            .collection(this.collection.person)
-            .where("id", "==", id)
-            .get()
-            .then((query: any)=> {
-                query.forEach((doc: any)=> {
-                    callback(doc.data())
-                })
+        .collection(this.collection.person)
+        .where("id", "==", id)
+        .get()
+        .then((query: object[])=> {
+            query.forEach((doc: any)=> {
+                console.log("LOAD PERSON: ", new Person(doc.data()))
+                callback(new Person(doc.data()))
             })
+        })
     }
 }
