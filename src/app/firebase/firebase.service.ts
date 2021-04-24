@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
-import { User } from '../user/user'
-import { Address }  from '../address/address'
-import { Person } from '../person/Person'
+import { User } from '../user/User'
+import { Address }  from '../address/Address'
+import { Person } from '../user/Person'
 
 declare let firebase: any
 
@@ -19,7 +19,8 @@ export class FirebaseService implements OnInit {
         users: 'users',
         person: 'person',
         addresses: "addresses",
-        comarcas: "countries"
+        comarcas: "countries",
+        procurations: "procurations"
     }
 
     constructor() {
@@ -102,4 +103,33 @@ export class FirebaseService implements OnInit {
             })
         })
     }
+
+    public find(resource: string, callback: any) {
+        
+        switch(resource) {
+            case "received":
+                this.users(callback)
+                break
+            default:
+                break
+        }
+    }
+
+    public procuration(data: any) {
+        data = JSON.parse(JSON.stringify(data))
+        return this.db.collection(this.collection.procurations).add(data)
+    }
+
+    public procurations(callback: any) {
+        let docs: any = []
+        this.db.collection(this.collection.procurations).get().then((querySnapshot: object[])=> {
+            querySnapshot.forEach((doc: any) => { 
+                docs.push(doc.data()) 
+            })
+
+            console.log("LIST PROCURATIONS: ", docs)
+            callback(docs)
+        })
+    }
+
 }

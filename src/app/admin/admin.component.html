@@ -1,0 +1,26 @@
+<section id="admin" class="row">
+    <div  class="col s12 m4 l3  noselect">
+        
+        <div *ngFor="let item of menu" class="collection noselect" (click)="findSet(item.uri)">
+            <a class="waves-effect waves-light collection-item">{{item.name}}</a>
+        </div>
+
+       <ul id="tabmenu" class="tabs">
+           <li class="tab col s3"> <a href="#swipe1">1</a></li>
+           <li class="tab col s3"> <a href="#swipe2">2</a></li>
+           <li class="tab col s3"> <a href="#swipe3">3</a></li>
+           <li class="tab col s3"> <a href="#swipe4">4</a></li>
+       </ul>
+        
+    </div>
+    <div class="col s12 m8 l9">
+
+        <div id="swipe1" class="col s12" (click)="tabExe()">
+            <app-list [find]="find"></app-list>
+        </div>
+        <div id="swipe2" class="col s12">Test 2</div>
+        <div id="swipe3" class="col s12">Test 3</div>
+        <div id="swipe4" class="col s12">Test 4</div>
+
+    </div>
+</section>

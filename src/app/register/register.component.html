@@ -1,74 +1,99 @@
-<div class="row">
-    <form class="col s12 m6 offset-m3 l6 offset-l3" >
-        
-        <h4>Dados do de Contato</h4>
+<div id="register" class="row">
+    <form class="col s12 m8 offset-m2 l6 offset-l3">
+
+        <h5>Soicitação</h5>
         <div class="row">
-            <div class="input-field col s12">
-                <input placeholder="Nome" id="name" type="text" class="validate" name="name" [(ngModel)]="user.name" >
-                <label for="name">Nome Completo/Razão Social</label>
+
+            <div class="input-field col s12 ">
+                <input 
+                    id="name" 
+                    type="text" 
+                    class="valid" 
+                    name="name" 
+                    [(ngModel)]="person.name" 
+                    (keyup)="validateName($event)"
+                >
+                <label for="name" class="active">Nome Completo/Razão Social</label>
+                <span class="helper-text" data-error="O nome precisa ter mais que 9 letras" data-success="Ok!"></span>
             </div>
 
             <div class="input-field col s6">
-                <input placeholder="Telefone" id="tel" type="text" class="validate" name="tel" [(ngModel)]="user.tel">
+                <input id="tel" type="text" class="validate" name="tel" [(ngModel)]="person.tel">
                 <label for="tel">Telefone</label>
             </div>
 
-            <div class="input-field col s12 m6">
-                <input id="email" type="text" class="validate" placeholder="email" name="email" [(ngModel)]="user.email">
+            <div class="input-field col s6">
+                <input id="email" type="text" class="validate" name="email" [(ngModel)]="person.email">
                 <label for="email">Email</label>
             </div>
+
         </div>
 
-        <h4>Dados de Registro</h4>
+        <h6>Documentos</h6>
         <div class="row">
-            <div class="input-field col s12 m6">
-                <input id="cpf" type="text" class="validate" placeholder="CPF" [(ngModel)]="person.cpf" name="cpf">
+            <div class="input-field col s6 m6">
+                <input id="cpf" type="text" class="validate" [(ngModel)]="person.cpf" name="cpf">
                 <label for="cpf">CPF</label>
             </div>
-            <div class="input-field col s12 m6">
-                <input id="rg" type="text" class="validate" placeholder="RG" [(ngModel)]="person.rg" name="rg">
+            <div class="input-field col s6 m6">
+                <input id="rg" type="text" class="validate" [(ngModel)]="person.rg" name="rg">
                 <label for="rg">RG</label>
             </div>
         </div>
 
-        <h4>Endereço</h4>
-        <div class="row">
-            <div class="input-field col s11 m10">
-                <input id="street" type="text" class="validate" placeholder="Rua" name="street"  [(ngModel)]="address.street">
+        <h6>Endereço</h6>
+        <!--<div class="row">
+            <div class="input-field col s10 m10">
+                <input id="street" type="text" class="validate" name="street" [(ngModel)]="person.street">
                 <label for="street">Rua</label>
             </div>
-            <div class="input-field col s12 m2">
-                <input id="number" type="text" class="validate" placeholder="Número" name="number" [(ngModel)]="address.number" >
-                <label for="number">Número</label>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="input-field col s12 m6">
-                <input id="district" type="text" class="validate" placeholder="bairro" name="district" [(ngModel)]="address.district">
-                <label for="district">Bairro</label>
-            </div>
-            <div class="input-field col s12 m6">
-                <input id="city" type="text" class="validate" placeholder="Cidade" name="city" [(ngModel)]="address.city">
-                <label for="city">Cidade</label>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="input-field col s6 m4">
-                <input id="state" type="text" class="validate" placeholder="Estado" name="state" [(ngModel)]="address.state">
-                <label for="state">UF</label>
-            </div>
-            <div class="input-field col s6 m8">
-                <input id="cep" type="text" class="validate" placeholder="CEP" name="cep" [(ngModel)]="address.cep">
-                <label for="cep">CEP</label>
+            <div class="input-field col s2 m2">
+                <input id="number" type="text" class="validate" name="number" [(ngModel)]="person.number">
+                <label for="number">Nº</label>
             </div>
         </div>
 
         <div class="row">
+            <div class="input-field col s12 m6">
+                <input id="district" type="text" class="validate" name="district" [(ngModel)]="person.district">
+                <label for="district">Bairro</label>
+            </div>
+            <div class="input-field col s12 m6">
+                <input id="city" type="text" class="validate" name="city" [(ngModel)]="person.city">
+                <label for="city">Cidade</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6 m4">
+                <input id="state" type="text" class="validate" name="state" [(ngModel)]="person.state">
+                <label for="state">UF</label>
+            </div>
+            <div class="input-field col s6 m8">
+                <input id="cep" type="text" class="validate" name="cep" [(ngModel)]="person.cep">
+                <label for="cep">CEP</label>
+            </div>
+        </div>
+        -->
+
+        <div class="row">
             <div class="col s12">
-                <button class="btn btn-large" type="submit" (click)="save()">Salvar</button>
+                <button class="btn btn-large col s12 m8 l3" type="submit" (click)="save(person)">Salvar</button>
             </div>
         </div>
     </form>
+
+    <a class="waves-effect waves-light btn modal-trigger" href="#modalRegisteter">Modal</a>
+
+    <!-- Modal Structure -->
+    <div id="modalRegisteter" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
 </div>

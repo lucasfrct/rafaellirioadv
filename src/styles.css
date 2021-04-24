@@ -1,1 +1,199 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: rafa;
+    src: url(assets/fonts/Dehuti-Book.otf);
+}
+
+@font-face {
+    font-family: adv;
+    src: url(assets/fonts/DejaVuSans.ttf);
+}
+
+html, html body {
+    font-family: adv;
+}
+
+html body {
+    background-color: rgba(0,0,0,0.84);
+}
+
+body,
+header, 
+main,
+footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: block;
+    min-height: 66px;
+    font-family: adv;
+}
+
+header,
+main,
+footer {
+    color: #FFF;
+}
+
+header,
+footer {
+    min-height: 66px;
+    background-color: transparent;
+}
+
+main {
+    min-height: 100px;
+    min-height: calc(100vh - 66px - 66px - 8px);
+}
+
+body .primary {
+    background-color: rgba(28,32,35, 1);
+    color: gainsboro;
+}
+
+body .secondary {
+    background-color: rgba(167,62,22, 1);
+    color: gainsboro;
+}
+
+body .terciary {
+    background-color: rgba(255,185, 2);
+    color: rgba(28,32,35, 1);
+}
+
+body nav {
+    background-color: rgba(28,32,35, 1);
+}
+
+body nav img {
+    height: 60px;
+    padding: 4px 16px;
+ }
+
+body ul {
+    color: #FFF;
+}
+
+body ul * {
+    color: inherit !important;
+}
+
+body ul *:not(ul) {
+    background-color: transparent
+}
+
+body ul > * {
+    cursor: pointer;
+}
+
+body ul > *:hover:not(.no-hover),
+body ul > *:focus:not(.no-hover),
+body ul > *:active:not(.no-hover) {
+    background-color: rgba(255,255,255,0.1);
+}
+
+body ul li li {
+    padding: 0;
+    padding-left: 32px;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently*/
+}
+
+.writing-pad {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.page {
+    width: 21cm;
+    min-height: 29.7cm;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+    padding: 3.5cm 3cm 2.5cm 3cm;
+    background: #fffef0;
+    color: #000;
+    page-break-after: always;
+}
+
+.page .title-pad {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14pt;
+    text-decoration: underline;
+    padding-bottom: 1.15cm;
+}
+
+.page .name-pad {
+    text-transform: uppercase;
+}
+
+.page .writing-pad {
+    text-align: justify;
+    padding-bottom: 1cm;
+}
+
+.page .date-pad {
+    text-align: center;    
+}
+
+.page .signature-pad {
+    margin: 0 auto;
+    margin-top: 2cm;
+    padding-top: 0.45cm;
+    border: none;
+    border-top: solid 1px #000; 
+    text-align: center;
+    width: 60%;
+}
+
+@media print {
+    
+    body header,
+    body footer { 
+        display: none;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .page {
+        background-color: #FFF;
+        color: #000;
+        display: block !important;
+        -webkit-print-color-adjust: exact; 
+    }
+
+    body #procuration #modal-procuration {
+        transform: scale(1) !important;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+
+body .form {
+    background-color: #FFF;
+    margin-top: 66px;
+    margin-bottom: 32px;
+    padding: 32px 48px !important;
+    border-radius: 8px;
+    color: #000;
+}

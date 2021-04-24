@@ -1,0 +1,122 @@
+<section id="procuration" class="">
+
+    <div class="row no-print">
+        <form id="client" class="form col offset-l2 l8 s12">
+            <div class="row">
+                <h5>Preencha a procuração com seus dados</h5>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="name" type="text" name="name" class="validate" [(ngModel)]="Procuration.Client.name">
+                    <label for="name" class="active">Nome Completo</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="nacionality" type="text" name="nacionality" class="validate"
+                        [(ngModel)]="Procuration.Client.nacionality">
+                    <label for="nacionality">Nacionalidade</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="marital" type="text" name="marital" class="validate" [(ngModel)]="Procuration.Client.marital">
+                    <label for="marital">Estado Civil</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="profession" type="text" name="profession" class="validate"
+                        [(ngModel)]="Procuration.Client.profession">
+                    <label for="profession">Profissão</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="rg" type="text" name="rg" class="validate" [(ngModel)]="Procuration.Client.rg">
+                    <label for="rg">R.G.</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="cpf" type="text" name="cpf" class="validate" [(ngModel)]="Procuration.Client.cpf">
+                    <label for="cpf">CPF</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="cep" type="text" name="cep" class="validate" [(ngModel)]="Procuration.Client.Address.cep">
+                    <label for="cep">CEP</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="street" type="text" name="street" class="validate" [(ngModel)]="Procuration.Client.Address.street">
+                    <label for="street">Rua</label>
+                </div>
+                <div class="input-field col s2">
+                    <input id="number" type="text" name="number" class="validate" [(ngModel)]="Procuration.Client.Address.number">
+                    <label for="number">Nº</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="district" type="text" name="district" class="validate" [(ngModel)]="Procuration.Client.Address.district">
+                    <label for="district">Bairro</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="city" type="text" name="city" class="validate" [(ngModel)]="Procuration.Client.Address.city">
+                    <label for="city">Cidade</label>
+                </div>
+                <div class="input-field col s2">
+                    <input id="uf" type="text" name="uf" class="validate" [(ngModel)]="Procuration.Client.Address.state">
+                    <label for="uf">UF</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <button class="btn btn-large waves-effect col s6" (click)="visualize()">Visualizar</button>
+            </div>
+
+        </form> 
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal-procuration" class="modal">
+        <button class="btn red modal-close waves-effect waves-red right no-print">Voltar</button>
+        <button class="btn btn-large green modal-close waves-effect waves-green left no-print" style="top: 28cm" (click)="save()" > Confirmar e salvar</button>
+
+     
+        <div class="modal-content">
+            
+            <div class="page">
+
+                <h1 class="title-pad">{{Procuration.title}}</h1>
+    
+                <p class="writing-pad">
+                    <b>OUTORGANTE</b>: <span class="name-pad">{{Procuration.Client.name}}</span>, {{Procuration.Client.nacionality}},
+                    {{Procuration.Client.marital}}, {{Procuration.Client.profession}}, portador do RG nº {{Procuration.Client.rg}}, inscrito no CPF sob o nº
+                    {{Procuration.Client.cpf}}, residente e domiciliado a {{Procuration.Client.Address.street}}, nº {{Procuration.Client.Address.number}}, {{Procuration.Client.Address.district}},
+                    {{Procuration.Client.Address.city}} – {{Procuration.Client.Address.state}} – CEP: {{Procuration.Client.Address.cep}}
+                </p>
+    
+                <p class="writing-pad"><b>OUTORGADO</b>: {{Procuration.Lawyer.name}}, {{Procuration.Lawyer.nacionality}}, {{Procuration.Lawyer.marital}},
+                    inscrito na {{Procuration.Lawyer.stateOAB}} sob o nº {{Procuration.Lawyer.inscriptionOAB}}, com endereço profissional
+                    situado à {{Procuration.Lawyer.Address.street}}, Tel.: {{Procuration.Lawyer.tel}}.</p>
+    
+                <p class="writing-pad"><b>PODERES</b>: Ao <b>OUTORGADO</b> é conferido amplos poderes, inerentes ao bom e
+                    fielcumprimento deste mandato, bem como para o foro em geral, com cláusula ad-judicia et extra, conforme
+                    estabelecido no artigo 105 do Código de Processo Civil, e os especiais para transigir, receber e dar
+                    quitação, acordar, firmar compromisso, substabelecer, renunciar, desistir, reconhecer a procedência do
+                    pedido, receber intimações, recorrer a quaisquer instâncias e tribunais, podendo atuar em conjunto ou
+                    separadamente, dando tudo por bom e valioso, fim específico de representá-lo {{Procuration.action}}s a ser ajuizada
+                    perante este M.M Juízo.</p>
+    
+                <p class="date-pad">{{Procuration.Address.city}}, {{Procuration.date}}.</p>
+    
+                <p class="signature-pad">{{Procuration.Client.name}}</p>
+            </div>
+            
+        </div>
+   
+    </div> 
+
+
+</section>

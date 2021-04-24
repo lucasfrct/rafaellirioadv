@@ -1,0 +1,16 @@
+#register {
+    padding-top: 72px;
+    color: #FFF;
+}
+
+#register form {
+    min-height: 50vh;
+}
+
+#register form input {
+    color: #FFF;
+}
+
+#register .helper-text {
+    color: #FFF;
+}

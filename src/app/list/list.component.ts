@@ -1,7 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { FirebaseService } from '../firebase/firebase.service'
-import { PersonFactory } from '../person/Person.fatory';
-import { User } from '../user/user'
 
 
 @Component({
@@ -11,6 +9,11 @@ import { User } from '../user/user'
 })
 
 export class ListComponent implements OnInit {
+
+    @Input() set find(find: string) {
+        this.findData(find)
+        console.log("FIND", find)
+    }
 
     @Output () user = new EventEmitter <String> ();
     @Output () address = new EventEmitter <String> ();
@@ -48,6 +51,15 @@ export class ListComponent implements OnInit {
     public toggleSelect(element: any) {
         element.target.classList.toggle("active")
     }
+
+    public findData(resource: string) {
+        console.log("FIND DATA RESOUCE", resource)
+        this.service.find(resource, (data: Object[]) => {
+            console.log("FIND DATA", data)
+        })
+    }
+
+
 
 }
 

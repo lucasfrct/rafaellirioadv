@@ -1,0 +1,32 @@
+ #menu {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    height: 66px;
+    height: 66px;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.1);
+ }
+ 
+#menu #menu-consult {
+    min-width: 280px;
+    transform: translate(20px, -66px);
+}
+
+#menu #menu-consult li > a {
+    min-height: 32px;
+    line-height: 32px;
+}
+
+#menu #menu-sidenav {
+    
+}
+
+.sidenav ul > li {
+    padding: 0 16px;
+}
+.collapsible-body {
+    background-color: transparent;
+}

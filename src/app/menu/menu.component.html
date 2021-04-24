@@ -1,0 +1,98 @@
+<nav id="menu" class="noselect">
+        
+    <a id="icon-menu" data-target="menu-sidenav" class="sidenav-trigger">
+        <i class="material-icons">{{menu.icon}}</i>
+    </a>
+    
+    <div class="nav-wrapper">
+        
+        <a routerLink="home" class="brand-logo">
+            <img src="{{perfil.logoUrl}}">
+        </a>
+
+        <ul class="right hide-on-med-and-down">
+
+            <li *ngFor="let item of menu.itens">
+                <a [routerLink]="item.uri" class="waves-effect waves-light">{{item.name}}</a>
+            </li>
+
+            <li>
+                <a class="waves-effect waves-light dropdown-trigger" data-target="menu-consult">Consultas
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+
+                <ul id="menu-consult" class="dropdown-content primary">
+                    <li *ngFor="let item of consults.itens">
+                        <a 
+                            [routerLink]="item.uri" 
+                            class="waves-effect waves-light" 
+                        ><i class="material-icons">{{item.icon}}</i>{{item.name}}</a>
+
+                        <ul *ngIf="item.submenu">
+            
+                            <li *ngFor="let subitem of item.submenu">
+                                <a [routerLink]="subitem.uri" class="waves-effect waves-light">
+                                    <i class="material-icons">{{subitem.icon}}</i>
+                                    {{subitem.name}}
+                                </a>
+                            </li>
+              
+                        </ul>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div> 
+</nav>
+
+<ul id="menu-sidenav" class="noselect sidenav primary">
+    
+    <li class="no-hover">
+        <div class="user-view">
+            <a routerLink="home"><img class="circle" src="{{perfil.logoSimpleUrl}}"></a>
+            <a routerLink="home"><span class="white-text name">{{perfil.name}}</span></a>
+            <a routerLink="home"><span class="white-text email">{{perfil.profession}}</span></a>
+        </div>
+    </li>
+
+    <li *ngFor="let item of menu.itens">
+        <a [routerLink]="item.uri" class="waves-effect waves-light"><i class="material-icons">{{item.icon}}</i>{{item.name}}</a>
+    </li>
+
+    <li class="no-hover">
+        <div class="divider"></div>
+    </li>
+
+    <li class="no-hover"><a class="subheader">Consultas</a></li>
+
+    <li *ngFor="let item of consults.itens">
+        
+        <a [routerLink]="item.uri" class="waves-effect waves-light" *ngIf="!item.submenu">
+            <i class="material-icons">{{item.icon}}</i>
+            {{item.name}}
+        </a>
+
+        <ul class="collapsible collapsible-accordion" *ngIf="item.submenu">
+            <li>
+                <a [routerLink]="item.uri" class="collapsible-header waves-effect waves-light" tabindex="0">
+                    <i class="material-icons">{{item.icon}}</i>
+                    {{item.name}}
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li *ngFor="let subitem of item.submenu">
+                            <a [routerLink]="subitem.uri" class="waves-effect waves-light">
+                                <i class="material-icons">{{subitem.icon}}</i>
+                                {{subitem.name}}
+                            </a>
+                        </li>
+                        
+                        </ul>
+                </div>
+            </li>
+        </ul>
+
+    </li>
+</ul>

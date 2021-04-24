@@ -1,8 +1,32 @@
-#list > li {
-    border: solid 1x #F00 !important;
+#list {
+    border: solid 1px rgba(255, 255, 255, 0.1);
 }
 
+#list > *:first-child {
+    padding: 0;
+    padding-bottom: 32px;
+}
+
+#list input,
+#list .input-field {
+    background-color: transparent;
+    color: #FFF;
+}
+
+#list .input-field i {
+    margin: 10px 0 0 0px;
+
+}
+
+#list input {
+    padding-left: 45px;
+}
+
+#list > li {
+    background-color: transparent;
+}
+
+
 #list > .element:hover, #list > li:focus  {
-    border: solid 1x #F00 !important;
-    background-color: rgba(0, 0, 0, 0.05);
+    border: solid 1px #F00 !important;
 }

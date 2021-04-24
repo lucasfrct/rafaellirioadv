@@ -1,12 +1,17 @@
-export class Address {
-    cep: string = ''
-    city: string = ''
-    district: string = ''
-    number: string = ''
-    state: string = ''
-    street: string = ''
 
-    constructor({ cep = '', city = '', district = '', number = '', state ='', street = ''}) {
+
+export class Address {
+    
+    public uid: string = ''
+    public cep: string = ''
+    public city: string = ''
+    public district: string = ''
+    public number: string = ''
+    public state: string = ''
+    public street: string = ''
+
+    constructor({ uid = '', cep = '', city = '', district = '', number = '', state ='', street = ''}) { 
+        this.uid = uid
         this.cep = cep
         this.city = city
         this.district = district

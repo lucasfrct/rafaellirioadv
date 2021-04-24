@@ -1,58 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Angular2MaterializeV1Service } from 'angular2-materialize-v1';
 import { FirebaseService } from '../firebase/firebase.service'
+import { PersonFactory } from '../user/Person.factory'
 
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, AfterViewInit {
+
+    private service: FirebaseService
+    public person: PersonFactory
+    public erros: any
     
-    public user = {
-        id: "",
-        name: "",
-        nickname: "",
-        tel: "",
-        email: "",
-        date: new Date()
-    }
-
-    public person = {
-        id: "",
-        cpf: "",
-        rg: "",
-    }
-
-    public address = {
-        id: "",
-        street: "",
-        number: "",
-        district: "",
-        city: "",
-        state: "",
-        cep: ""
-    }
-
-    public firebaseService: any
-    
-    constructor() {
-        this.firebaseService = new FirebaseService
+    constructor(private angular2MaterializeService: Angular2MaterializeV1Service) {
+        this.service = new FirebaseService
+        this.person = new PersonFactory({ uid: this.service.getId() })
+        this.person.birthday = new Date()
+        this.person.mock()
+        //console.log("PERSON VALIDATE: ", this.person.autoValidade())
     }
     
     ngOnInit(): void { }
+    
+    ngAfterViewInit(): void  {
+        this.angular2MaterializeService.initModal("#modalRegisteter")
+        setTimeout(()=> { this.angular2MaterializeService.updateTextFields() }, 10)
+            
+    }
+    
+    public save(Person: PersonFactory) {
+        console.log("PERSON: ", Person.autoValidade())
 
-    public save() {
         
-        var newKey = this.firebaseService.genId()
-        
-        this.user.id = newKey
-        this.person.id = newKey
-        this.address.id = newKey
-        this.user.date = new Date()
 
-        this.firebaseService.user(this.user)
-        this.firebaseService.person(this.person)
-        this.firebaseService.address(this.address)
+        this.service.user(Person.user())
+
+        /*this.service.person(Person.get())
+        this.service.address(Person.address())*/
+    }
+
+    public validateName(input: any) {
+        console.log("t", input)
+        let status = this.person.validateName(this.person.name)
+        input.target.classList.remove('validate') 
+        input.target.classList.remove('invalid') 
+        input.target.classList.remove('valid') 
+        if(status == null) input.target.classList.add('validate') 
+        if(status == false) input.target.classList.add('invalid')
+        if(status == true) input.target.classList.add('valid') 
     }
 
 }

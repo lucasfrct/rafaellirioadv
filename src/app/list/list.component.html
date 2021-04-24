@@ -1,13 +1,19 @@
-<ul id="list" class="collection">
+<ul id="list" class="collection primary">
     <li class="collection-item">
+        
         <div class="input-field">
             <input id="search" type="search" required [(ngModel)]="search">
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
-          </div>
+        </div>
+
     </li>
-    <li class="collection-item element" *ngFor="let user of users | filter: search" (click)="select(user); toggleSelect($event)">
-        {{user.name}} <span class="new badge" data-badge-caption="">{{user.date.toDate() | date:"dd/MM/YY"}}</span>
-        <span class="new badge" data-badge-caption="">tel: {{user.tel}}</span>
+    <li 
+        class="collection-item element" 
+        *ngFor="let user of users | filter: search" 
+        (click)="select(user); toggleSelect($event)"
+    >
+        {{user.name}} 
+        <span class="new badge" data-badge-caption="">{{user.date.toDate() | date:"dd/MM/YY"}}</span>
     </li>
 </ul>

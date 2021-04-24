@@ -1,0 +1,71 @@
+
+#slide {
+    color: #FFF;
+    height: calc(100vh - 2px);
+    background-image: url(../../assets/images/perfil.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 25%;
+    background-blend-mode: overlay;
+    margin: 0;
+    top: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+#slide::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1;
+    background-image: url(../../assets/images/malha.png);
+    background-repeat: repeat;
+    background-size: 50px;
+    background-blend-mode:inherit;
+}
+
+#slide > div {
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#slide * {
+    display: block;
+    z-index: 10 !important;
+}
+
+
+#slide h1, 
+#slide article {
+    padding: 0 0 0 5%;
+    margin: 8px 0;
+}
+
+
+#slide hr {
+    border: none;
+    background-color:rgba(213,159,31, 1);
+    height: 2px;
+    width: 100%;
+    transform: translate(-10%);
+}
+
+
+#slide article {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 600px)
+{
+    #slide {
+        height: calc(100vh - 60px);
+    }
+}
