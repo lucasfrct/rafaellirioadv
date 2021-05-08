@@ -15,6 +15,7 @@ import { SlideComponent } from './slide/slide.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProcurationComponent } from './procuration/procuration.component';
 import { MenuComponent } from './menu/menu.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { MenuComponent } from './menu/menu.component';
         SlideComponent,
         AdminComponent,
         ProcurationComponent,
-        MenuComponent
+        MenuComponent,
+        AttendanceComponent
     ],
     imports: [
         BrowserModule,
