@@ -17,7 +17,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     ngOnInit(): void { }
 
     public ngAfterViewInit(): void {
+
         this.angular2MaterializeService.autoInit()
+
     }
 
 }
