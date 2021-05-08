@@ -1,54 +1,53 @@
 <nav id="menu" class="noselect">
-        
+
     <a id="icon-menu" data-target="menu-sidenav" class="sidenav-trigger">
-        <i class="material-icons">{{menu.icon}}</i>
+        <i class="material-icons">{{menu.getIcon()}}</i>
     </a>
-    
+
     <div class="nav-wrapper">
-        
+
         <a routerLink="home" class="brand-logo">
             <img src="{{perfil.logoUrl}}">
         </a>
 
         <ul class="right hide-on-med-and-down">
 
-            <li *ngFor="let item of menu.itens">
-                <a [routerLink]="item.uri" class="waves-effect waves-light">{{item.name}}</a>
-            </li>
+            <li *ngFor="let item of menu.getItens(); let i = index">
+                <a [routerLink]="item.uri" class="waves-effect waves-light" *ngIf="item.submenu.length == 0">{{item.name}}</a>
 
-            <li>
-                <a class="waves-effect waves-light dropdown-trigger" data-target="menu-consult">Consultas
+                <a class="waves-effect waves-light dropdown-trigger" data-target="submenu" *ngIf="item.submenu.length > 0">Consultas
                     <i class="material-icons right">arrow_drop_down</i>
                 </a>
 
-                <ul id="menu-consult" class="dropdown-content primary">
-                    <li *ngFor="let item of consults.itens">
+                <ul id="submenu" class="dropdown-content primary" *ngIf="item.submenu.length > 0">
+                    <li *ngFor="let itm of item.submenu">
                         <a 
-                            [routerLink]="item.uri" 
+                            [routerLink]="itm.uri" 
                             class="waves-effect waves-light" 
-                        ><i class="material-icons">{{item.icon}}</i>{{item.name}}</a>
+                        ><i class="material-icons">{{itm.icon}}</i>{{itm.name}}</a>
 
-                        <ul *ngIf="item.submenu">
+                        <ul *ngIf="itm.submenu?.length > 0">
             
-                            <li *ngFor="let subitem of item.submenu">
-                                <a [routerLink]="subitem.uri" class="waves-effect waves-light">
-                                    <i class="material-icons">{{subitem.icon}}</i>
-                                    {{subitem.name}}
+                            <li *ngFor="let it of itm.submenu">
+                                <a [routerLink]="it.uri" class="waves-effect waves-light">
+                                    <i class="material-icons">{{it.icon}}</i>{{it.name}}
                                 </a>
                             </li>
               
                         </ul>
 
-                    </li>
+                    </li> 
                 </ul>
+
             </li>
+
         </ul>
 
-    </div> 
+    </div>
 </nav>
 
 <ul id="menu-sidenav" class="noselect sidenav primary">
-    
+
     <li class="no-hover">
         <div class="user-view">
             <a routerLink="home"><img class="circle" src="{{perfil.logoSimpleUrl}}"></a>
@@ -57,17 +56,38 @@
         </div>
     </li>
 
-    <li *ngFor="let item of menu.itens">
-        <a [routerLink]="item.uri" class="waves-effect waves-light"><i class="material-icons">{{item.icon}}</i>{{item.name}}</a>
+    <li *ngFor="let item of menu.getItens()">
+        <a [routerLink]="item.uri" class="waves-effect waves-light" *ngIf="item.submenu.length == 0">
+            <i class="material-icons">{{item.icon}}</i>{{item.name}}
+        </a>
+
+        <div class="divider" *ngIf="item.submenu.length > 0"></div>
+
+        <ul class="collapsible collapsible-accordion"  *ngIf="item.submenu.length > 0">
+            <li>
+                <a [routerLink]="item.uri" class="collapsible-header waves-effect waves-light" tabindex="0">
+                    <i class="material-icons">{{item.icon}}</i>
+                    {{item.name}}
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li *ngFor="let subitem of item.submenu">
+                            <a [routerLink]="subitem.uri" class="waves-effect waves-light">
+                                <i class="material-icons">{{subitem.icon}}</i>
+                                {{subitem.name}}
+                            </a>
+                        </li>
+                        
+                        </ul>
+                </div>
+            </li>
+        </ul>
+
+
+        
     </li>
 
-    <li class="no-hover">
-        <div class="divider"></div>
-    </li>
-
-    <li class="no-hover"><a class="subheader">Consultas</a></li>
-
-    <li *ngFor="let item of consults.itens">
+    <li *ngFor="let item of consults">
         
         <a [routerLink]="item.uri" class="waves-effect waves-light" *ngIf="!item.submenu">
             <i class="material-icons">{{item.icon}}</i>

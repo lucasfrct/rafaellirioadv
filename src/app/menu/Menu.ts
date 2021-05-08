@@ -1,16 +1,49 @@
+
 export class Menu {
 
-    icon: string = "menu"
-    
-    itens: any[] =  [
-        { name: "Escritório", icon: "account_balance", uri:"" },
-        { name: "Atuação", icon: "business_center", uri:"" },
-        { name: "Contato", icon: "contact_mail", uri:"" },
-    ]
+    protected icon: string = "menu"
+    protected itens: any[] = []
+    protected routes: any[] = []
 
     constructor() { }
 
-    public setItens({ name = "", icon = "", uri = ""}) {
-        this.itens.push({ name: name, icon: icon, uri: uri})
+    public setIcon(icon: string): string {
+        return this.icon = icon
+    }
+
+    public getIcon(): string {
+        return this.icon
+    }
+
+    public setItem(item: any): any {
+        this.itens.push(this.buildItem(item))
+        this.routes.push(item.uri)
+        return item
+    }
+
+    public getItens(): any[] {
+        return this.itens
+    }
+
+    public setRoute(route: string) {
+        this.routes.push(route)
+    }
+
+    public getRoutes(): any[] {
+        return this.routes
+    }
+
+    public buildItem({ name = "", icon = "", uri = "", submenu = [] as any}): any {
+        
+        const that = this
+        if(submenu.length > 0) {
+            submenu.map((item: any)=> {
+                item.uri = `${uri}/${item.uri}`
+                that.routes.push(item.uri)
+                return item
+            })
+        }
+
+       return { name: name, icon: icon, uri: uri, submenu: submenu }
     }
 }
