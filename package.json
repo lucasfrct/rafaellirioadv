@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port 4201 --host 192.168.1.100 --disableHostCheck true --open",
     "build": "ng build",
+    "cypress:open": "npx cypress open",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -34,6 +35,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "cypress": "^7.3.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.1.0",
