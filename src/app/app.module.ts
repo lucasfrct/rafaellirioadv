@@ -3,32 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
+import { MenuComponent } from './menu/menu.component';
+import { SlideComponent } from './slide/slide.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { FilterPipe } from './filter.pipe';
+
+import { AdminComponent } from './admin/admin.component';
+import { AddressComponent } from './address/address.component';
+import { ClientComponent } from './client/client.component';
+//import { RegisterComponent } from './register/register.component';
 import { ToiComponent } from './toi/toi.component';
 import { ListComponent } from './list/list.component';
-import { FilterPipe } from './filter.pipe';
-import { SlideComponent } from './slide/slide.component';
-import { AdminComponent } from './admin/admin.component';
-import { ProcurationComponent } from './procuration/procuration.component';
-import { MenuComponent } from './menu/menu.component';
-import { AttendanceComponent } from './attendance/attendance.component';
+//import { ProcurationComponent } from './procuration/procuration.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
-        RegisterComponent,
+        MenuComponent,
+        SlideComponent,
+        AttendanceComponent,
+        FilterPipe,
         ToiComponent,
         ListComponent,
-        FilterPipe,
-        SlideComponent,
+        //       RegisterComponent,
         AdminComponent,
-        ProcurationComponent,
-        MenuComponent,
-        AttendanceComponent
+//        ProcurationComponent,
+        ClientComponent,
+        AddressComponent
     ],
     imports: [
         BrowserModule,

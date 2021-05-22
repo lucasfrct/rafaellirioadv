@@ -18,46 +18,24 @@ html body {
     background-color: rgba(0,0,0,0.84);
 }
 
-body,
-header, 
-main,
-footer {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: block;
-    min-height: 66px;
     font-family: adv;
 }
 
-header,
-main,
-footer {
-    color: #FFF;
-}
-
-header,
-footer {
-    min-height: 66px;
-    background-color: transparent;
-}
-
-main {
-    min-height: 100px;
-    min-height: calc(100vh - 66px - 66px - 8px);
-}
-
-body .primary {
+html .primary {
     background-color: rgba(28,32,35, 1);
     color: gainsboro;
 }
 
-body .secondary {
+html .secondary {
     background-color: rgba(167,62,22, 1);
     color: gainsboro;
 }
 
-body .terciary {
+html .terciary {
     background-color: rgba(255,185, 2);
     color: rgba(28,32,35, 1);
 }
@@ -98,20 +76,29 @@ body ul li li {
     padding-left: 32px;
 }
 
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently*/
+body .noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body .form {
     background-color: #FFF;
-    margin-top: 66px;
-    margin-bottom: 32px;
-    padding: 32px 48px !important;
-    border-radius: 8px;
+    padding: 0;
+    border-radius: 4px;
     color: #000;
+}
+
+body .form fieldset {
+    margin: 0;
+    padding: 8px;
+    border: none;
+}
+
+body .form legend {
+    padding: 16px 8px 8px 8px;
+    font-size: 1.5rem;
 }

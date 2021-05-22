@@ -1,0 +1,19 @@
+#client {
+
+}
+
+#client #client-tab {
+    display: none;
+}
+
+#client #step-client,
+#client #step-representative {
+    max-height: auto;
+    overflow: auto;
+    height: auto;
+    clear: both;
+}
+
+#client #facts {
+    min-height: 300px;
+}

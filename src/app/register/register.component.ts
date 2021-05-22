@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Angular2MaterializeV1Service } from 'angular2-materialize-v1';
 import { FirebaseService } from '../firebase/firebase.service'
-import { PersonFactory } from '../user/Person.factory'
+import { PersonFactory } from '../person/Person.factory'
 
 @Component({
     selector: 'app-register',
@@ -11,14 +11,14 @@ import { PersonFactory } from '../user/Person.factory'
 export class RegisterComponent implements OnInit, AfterViewInit {
 
     private service: FirebaseService
-    public person: PersonFactory
+    public person: any
     public erros: any
     
     constructor(private angular2MaterializeService: Angular2MaterializeV1Service) {
         this.service = new FirebaseService
-        this.person = new PersonFactory({ uid: this.service.getId() })
-        this.person.birthday = new Date()
-        this.person.mock()
+        //this.person = new PersonFactory({ uid: this.service.getId() })
+        //this.person.birthday = new Date()
+        //this.person.mock()
         //console.log("PERSON VALIDATE: ", this.person.autoValidade())
     }
     
@@ -43,13 +43,13 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
     public validateName(input: any) {
         console.log("t", input)
-        let status = this.person.validateName(this.person.name)
+        /*let status = this.person.validateName(this.person.name)
         input.target.classList.remove('validate') 
         input.target.classList.remove('invalid') 
         input.target.classList.remove('valid') 
         if(status == null) input.target.classList.add('validate') 
         if(status == false) input.target.classList.add('invalid')
-        if(status == true) input.target.classList.add('valid') 
+        if(status == true) input.target.classList.add('valid') */
     }
 
 }

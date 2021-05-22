@@ -1,5 +1,35 @@
-header#header {
-    width: 100%;
-    z-index: 1000;
+header {
+    max-height: 66px;
+    z-index: 100;
+    border-bottom: solid 2px rgba(255,255,255,0.08);
+}
+
+header, footer {
     height: 66px;
 }
+
+header, 
+main,
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: block;
+    font-family: adv;
+    color: #FFF;
+}
+
+
+main {
+    min-height: calc(100vh - 66px - 66px);
+}
+
+footer {
+    border-top: solid 2px rgba(255,255,255,0.1);
+}
+
+header:not(.primary) {
+    background-color: rgba(28,32,35, 0.3);
+}
+ 

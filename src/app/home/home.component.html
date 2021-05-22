@@ -1,13 +1,15 @@
-<header id="header">
-
+<header id="header" class="{{colorMenu}}">
     <app-menu></app-menu>
-
 </header>
 
-<main>
+<main id="main">
     <router-outlet></router-outlet>
 </main>
-<footer>
-
+<footer id="footer" class="page-footer primary row">
+    <div class="footer-copyright">
+        <div class="container">
+            <span class="col s12 center m8">© {{footer.year}} Copyright {{footer.owner}}</span> 
+            <span class="col s12 center m4">Design by {{footer.designer}}</span>
+        </div>
+    </div>
 </footer>
-

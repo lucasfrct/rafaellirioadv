@@ -1,16 +1,16 @@
-
 #slide {
     color: #FFF;
-    height: calc(100vh - 2px);
-    background-image: url(../../assets/images/perfil.png);
+    height: calc(100vh - 66px);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 25%;
     background-blend-mode: overlay;
     margin: 0;
-    top: 0px;
+    margin-bottom: -66px;
+    top: -66px;
     position: relative;
     overflow: hidden;
+    z-index: -1;
 }
 
 #slide::before {
@@ -61,11 +61,4 @@
 
 #slide article {
     font-size: 1.2rem;
-}
-
-@media (max-width: 600px)
-{
-    #slide {
-        height: calc(100vh - 60px);
-    }
 }

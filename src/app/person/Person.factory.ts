@@ -3,34 +3,22 @@ import { Person } from './Person'
 export class PersonFactory extends Person {
 
     public constructor({uid = ''}) {
-        super({})
-        this.uid = uid
+        super(uid, '', '', '', 0, '', '', '', 0)
     }
-
-    public user() {
-        return { uid: this.uid, birthday: this.birthday, name: this.name, nickname: this.nickname, email: this.email, tel: this.tel }
-    }
-
-
-
-    public get() {
-        return { uid: this.uid, cpf: this.cpf, rg: this.rg }
-    }
-
+    
     public mock() {
-        this.name = "Lucas Costa"
-        this.nickname = "lucasfrct"
+        this.name = "Lucas Ferreira Costa"
+        this.nickname = "lfrct"
         this.email = "lucasfrct@gmail.com"
-        this.tel= "(88) 98158-4026"
-        /*this.cep = "63430000"
-        this.city = "Icó"
-        this.district = "Cidade Nova"
-        this.number = "318"
-        this.state = "CE"
-        this.street = "Francisco Caetano Dantas"
-        this.cpf = "08721587647"
-        this.rg = "562284734"*/
+        this.tel = 88981584026
+        this.nacionality = "Barasileiro"
+        this.marital = "casado"
+        this.profession = "Produtor Audio Visual"
+        this.phone = 88981584026
+        this.rg.mock()
+        this.mainAddress.mock()
     }
+
 
     public autoValidade(): any {
         let errors = { 

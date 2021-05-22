@@ -7,8 +7,10 @@ import { Angular2MaterializeV1Service } from 'angular2-materialize-v1';
     styleUrls: ['./attendance.component.css']
 })
 export class AttendanceComponent implements OnInit, AfterViewInit {
-
-    constructor(private angular: Angular2MaterializeV1Service) { }
+    
+    constructor(private angular: Angular2MaterializeV1Service) { 
+        
+    }
 
     ngOnInit(): void {
     }

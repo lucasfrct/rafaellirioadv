@@ -17,12 +17,12 @@ export class ProcurationComponent implements OnInit, AfterViewInit {
         visualize: false,
     }
 
-    public Procuration: Procuration
+    //public Procuration: Procuration
 
     constructor(private materialize: Angular2MaterializeV1Service, private firebase: FirebaseService) { 
         
-        this.Procuration = new Procuration
-        console.log("PRO", this.Procuration)
+        //this.Procuration = new Procuration
+        //console.log("PRO", this.Procuration)
     }
 
     ngOnInit(): void {}
@@ -46,8 +46,8 @@ export class ProcurationComponent implements OnInit, AfterViewInit {
     }
 
     public save() {
-        console.log("SAVE PROCURATION: ", this.Procuration)
-        this.firebase.procuration(this.Procuration)
+        //console.log("SAVE PROCURATION: ", this.Procuration)
+        //this.firebase.procuration(this.Procuration)
        
     }
 

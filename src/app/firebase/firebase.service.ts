@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { User } from '../user/User'
 import { Address }  from '../address/Address'
-import { Person } from '../user/Person'
+import { Person } from '../person/Person'
 
 declare let firebase: any
 
@@ -70,7 +70,7 @@ export class FirebaseService implements OnInit {
         let docs: any = []
         this.db.collection(this.collection.users).get().then((querySnapshot: object[])=> {
             querySnapshot.forEach((doc: any) => { 
-                docs.push(new User(doc.data())) 
+                //docs.push(new User(doc.data())) 
             })
 
             console.log("LIST USERS: ", docs)
@@ -85,8 +85,8 @@ export class FirebaseService implements OnInit {
             .get()
             .then((query: any)=> {
                 query.forEach((doc: any )=> {
-                    console.log("LOAD ADDRESS: ", new Address(doc.data()))
-                    callback(new Address(doc.data()))
+                    //console.log("LOAD ADDRESS: ", new Address(doc.data()))
+                    //callback(new Address(doc.data()))
                 })
             })
     }
@@ -98,8 +98,8 @@ export class FirebaseService implements OnInit {
         .get()
         .then((query: object[])=> {
             query.forEach((doc: any)=> {
-                console.log("LOAD PERSON: ", new Person(doc.data()))
-                callback(new Person(doc.data()))
+                //console.log("LOAD PERSON: ", new Person(doc.data()))
+                //callback(new Person(doc.data()))
             })
         })
     }

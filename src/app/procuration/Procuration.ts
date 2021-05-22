@@ -1,4 +1,4 @@
-import { ClientFactory } from '../user/Client.factory'
+import { ClientFactory } from '../client/Client.factory'
 import { Lawyerfactory } from '../user/Lawyer.factory'
 import { Address } from '../address/Address'
 
@@ -14,30 +14,30 @@ export class Procuration {
     
     public date:string = '23 de Abril de 2021'
 
-    public Client: ClientFactory
-    public Lawyer: Lawyerfactory
-    public Address: Address
+    public Client: any
+    public Lawyer: any
+    //public Address: Address
 
     constructor() {
-        this.Client = new ClientFactory
-        this.Lawyer = new Lawyerfactory
+        //this.Client = new ClientFactory
+        //this.Lawyer = new Lawyerfactory
         
-        this.uid = this.Client.uid
+        //this.uid = this.Client.uid
 
-        this.Address = new Address({uid: this.uid})
+        //this.Address = new Address({uid: this.uid})
 
         this.mock()
     }
 
     public mock() {
-        this.Address.street = "centro"
+        /*this.Address.street = "centro"
         this.Address.number = "01"
         this.Address.district = "Centro"
         this.Address.city = "Icó"
         this.Address.state = "CE"
         this. Address.cep = "63.430-000"
 
-        this.date = String(new Date())
+        this.date = String(new Date())*/
 
     }
 

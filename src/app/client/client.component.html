@@ -1,0 +1,259 @@
+<section id="client" class="row">
+
+    <ul id="client-tab" class="tabs tabs-fixed-width">
+        <li class="tab col s3" *ngFor="let step of steps;">
+            <a href="#{{step.id}}" style="color: #000 !important;">{{step.title}}</a>
+        </li>
+    </ul>
+
+    <div id="step-client" class="col s12">
+
+
+        <form class="col s12 form">
+
+            <fieldset class="row">
+
+                <legend>Cliente</legend>
+
+                <div class="input-field col s12">
+                    <input id="client-name" type="text" name="client-name" class="validate" [(ngModel)]="client.name">
+                    <label for="client-name">Nome Completo *</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="client-cpf" type="text" name="client-cpf" class="validate" [(ngModel)]="client.rg.cpf">
+                    <label for="client-cpf">CPF *</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input id="client-rg" type="text" name="client-rg" class="validate" [(ngModel)]="client.rg.number">
+                    <label for="client-rg">RG *</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="client-issuingbody" type="text" name="client-issuingbody" class="validate" [(ngModel)]="client.rg.issuingBody">
+                    <label for="client-issuingbody">Órg. Exp. *</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="client-birthday" type="date" name="client-birthday" class="validate" [ngModel]="client.rg.birthday | date: 'yyyy-MM-dd'">
+                    <label for="client-birthday">Data. Nasc. *</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="client-email" type="email" name="client-email" class="validate" [(ngModel)]="client.email">
+                    <label for="client-email">Email *</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="client-phone" type="text" name="client-phone" class="validate" value="" [(ngModel)]="client.phone" >
+                    <label for="client-phone">Tel. Residencial</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="client-tel" type="text" name="client-tel" class="validate" [(ngModel)]="client.tel">
+                    <label for="client-tel">Tel. Pessoal *</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="client-marital" type="text" name="client-marital" class="validate" [(ngModel)]="client.marital">
+                    <label for="client-marital">Estado Civil *</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="client-profession" type="text" name="client-profession" class="validate" [(ngModel)]="client.profession">
+                    <label for="client-profession">Profissão *</label>
+                </div>
+
+                <p>
+                    <label>
+                      <input type="checkbox" class="filled-in"  (change)="ChangeRepresentative($event.target)" [checked]="control.check"  />
+                      <span>Cadastrar Representante Legal</span>
+                    </label>
+                </p>
+
+
+            </fieldset>
+
+            <div class="input-field col s12">
+                <button class="btn btn-large col s12" (click)="next()">Próximo</button>
+            </div>
+
+        </form>
+
+
+    </div>
+    <div id="step-address" class="col s12">
+        
+        <app-address [address]="client.mainAddress"></app-address>
+        
+        <form class="col s12 form">
+            <p>
+                <label>
+                  <input type="checkbox" class="filled-in"  (change)="ChangeRepresentative($event.target)" [checked]="control.check" />
+                  <span>Cadastrar Representante Legal</span>
+                </label>
+            </p>
+            <div class="input-field col s6">
+                <button class="btn btn-large col s12" (click)="prev()">Voltar</button>
+            </div>
+
+            <div class="input-field col s6">
+                <button class="btn btn-large col s12" (click)="next()">Próximo</button>
+            </div>
+        </form>
+    </div>
+    <div id="step-representative" class="col s12">
+
+        <form class="col s12 form">
+
+            <fieldset class="row">
+
+                <legend>Representante Legal</legend>
+
+                <div class="input-field col s12">
+                    <input id="representative-name" type="text" name="representative-name" class="validate" [(ngModel)]="representative.name">
+                    <label for="representative-name">Nome Completo</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="representative-cpf" type="text" name="representative-cpf" class="validate" [(ngModel)]="representative.rg.cpf" >
+                    <label for="representative-cpf">CPF</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input id="representative-rg" type="text" name="representative-rg" class="validate" [(ngModel)]="representative.rg.number">
+                    <label for="representative-rg">RG</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="representative-issuingbody" type="text" name="representative-issuingbody" class="validate" [(ngModel)]="representative.rg.issuingBody">
+                    <label for="representative-issuingbody">Órg. Exp.</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="representative-birthday" type="date" name="client-birthday" class="validate" [ngModel]="representative.rg.birthday | date: 'yyyy-MM-dd'">
+                    <label for="representative-birthday">Data. Nasc.</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="representative-email" type="email" name="representative-email" class="validate" [(ngModel)]="representative.email" > 
+                    <label for="representative-email">Email</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="representative-phone" type="text" name="representative-phone" class="validate" [(ngModel)]="representative.phone">
+                    <label for="representative-phone">Tel. Residencial</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="representative-tel" type="text" name="representative-tel" class="validate" [(ngModel)]="representative.tel">
+                    <label for="representative-tel">Tel. Pessoal.</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="representative-marital" type="text" name="representative-marital" class="validate" [(ngModel)]="representative.marital">
+                    <label for="representative-marital">Estado Civil</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="representative-profession" type="text" name="representative-profession" class="validate" [(ngModel)]="representative.profession">
+                    <label for="representative-profession">Profissão</label>
+                </div>
+
+            </fieldset>
+
+            <div class="input-field col s6">
+                <button class="btn btn-large col s12" (click)="prev()">Voltar</button>
+            </div>
+
+            <div class="input-field col s6">
+                <button class="btn btn-large col s12" (click)="next()">Próximo</button>
+            </div>
+
+        </form>
+
+
+
+    </div>
+    <div id="step-contrary-part" class="col s12">
+
+
+        <form class="col s12 form">
+
+            <fieldset class="row">
+
+                <legend>Parte Contrária</legend>
+
+                <div class="input-field col s12">
+                    <input id="contrarypart-name" type="text" name="contrarypart-name" class="validate" [(ngModel)]="contraryPart.name">
+                    <label for="contrarypart-name">Nome/Razão Social</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="representative-cpf" type="text" name="representative-cpf" class="validate" [(ngModel)]="contraryPart.rg.cpf">
+                    <label for="representative-cpf">CPF</label>
+                </div>
+
+                <div class="input-field col s8">
+                    <input id="contrarypart-rg" type="text" name="contrarypart-rg" class="validate" [(ngModel)]="contraryPart.rg.name">
+                    <label for="contrarypart-rg">RG</label>
+                </div>
+
+                <div class="input-field col s4">
+                    <input id="contrarypart-issuingbody" type="text" name="contrarypart-issuingbody" class="validate" [(ngModel)]="contraryPart.rg.issuingBody">
+                    <label for="contrarypart-issuingbody">Órg. Exp.</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="contrarypart-lins" type="text" name="contrarypart-lins" class="validate" [(ngModel)]="contraryPart.lins">
+                    <label for="contrarypart-lins">L.I.N.S.</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="contrarypart-stateregistration" type="text" name="contrarypart-stateregistration" class="validate" [(ngModel)]="contraryPart.stateRegistration">
+                    <label for="contrarypart-stateregistration">Inscri. Estadual</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="contrarypart-cityregistration" type="text" name="contrarypart-cityregistration" class="validate" [(ngModel)]="contraryPart.cityRegistration">
+                    <label for="contrarypart-cityregistration">Inscri. Municipal</label>
+                </div>
+
+
+            </fieldset>
+
+            <div class="input-field col s6">
+                <button class="btn btn-large col s12" (click)="prev()">Voltar</button>
+            </div>
+
+            <div class="input-field col s6">
+                <button class="btn btn-large col s12" (click)="next()">Próximo</button>
+            </div>
+
+        </form>
+
+    </div>
+    <div id="step-facts" class="col s12">
+
+        <form class="col s12 form">
+
+            <fieldset class="row">
+
+                <legend>Relato dos Fatos</legend>
+
+                <div class="input-field col s12">
+                    <textarea id="facts" class="materialize-textarea" name="facts" rows="15" cols="15"></textarea>
+                    <label for="facts">Relate os fatos aqui</label>
+                </div>
+
+            </fieldset>
+
+            <div class="input-field col s4">
+                <button class="btn btn-large col s12" (click)="prev()">Voltar</button>
+            </div>
+
+            <div class="input-field col s8">
+                <button class="btn btn-large col s12" (click)="save()">Salvar</button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
