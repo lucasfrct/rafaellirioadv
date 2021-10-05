@@ -102,3 +102,7 @@ body .form legend {
     padding: 16px 8px 8px 8px;
     font-size: 1.5rem;
 }
+
+.row-flex {
+    display: flex !important;
+}

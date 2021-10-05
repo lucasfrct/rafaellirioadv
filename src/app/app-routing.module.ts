@@ -9,8 +9,8 @@ import { AttendanceComponent } from './attendance/attendance.component'
 const routes: Routes = [
     { path: "", component: SlideComponent },
     { path: "home", component: SlideComponent },
+    { path: "solicit", component: SlideComponent },
     { path: "solicit/attendance", component: AttendanceComponent },
-//    { path: "solicit", component: SlideComponent },
 //    { path: "solicit/process", component: SlideComponent },
 //    { path: "solicit/register", component: RegisterComponent },
 //    { path: "admin", component: AdminComponent },

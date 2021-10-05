@@ -1,0 +1,30 @@
+#attendance {
+    background-attachment: fixed;
+    background-image: url(../../assets/images/malha.png);
+    background-size: 50px;
+    background-repeat: repeat;
+    background-position: center 25%;
+    background-blend-mode: overlay;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+}
+
+#attendance h4, 
+#attendance h5,
+#attendance p {
+    margin-bottom: 32px;
+}
+
+#attendance .internal-padding {
+    padding: 16px 32px;
+}
+
+#attendance .material-icons {
+    top: 6px;
+    position: relative;
+
+}
+
+#attendance > * {
+    margin-top: 32px;
+}
